@@ -822,6 +822,34 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   # Dump fingerprints
   script.Print("Target: {}".format(target_info.fingerprint))
 
+  script.Print("   ______                            ");
+  script.Print("  / ____/_  ______ _____  __  _______");
+  script.Print(" / /   / / / / __ `/ __ \/ / / / ___/");
+  script.Print("/ /___/ /_/ / /_/ / / / / /_/ (__  ) ");
+  script.Print("\____/\__, /\__, /_/ /_/\__,_/____/  ");
+  script.Print("     /____//____/                    ");
+  script.Print("                                     ");
+
+  cygnus_ver = target_info.GetBuildProp("ro.cygnus.version")
+  android_ver = target_info.GetBuildProp("ro.build.version.release")
+  spl = target_info.GetBuildProp("ro.caf.tag")
+  build_id = target_info.GetBuildProp("ro.build.id")
+  build_date = target_info.GetBuildProp("ro.build.date")
+  device = target_info.GetBuildProp("ro.product.device")
+  manufacturer = target_info.GetBuildProp("ro.product.manufacturer")
+
+  script.Print("***********************************************");
+  script.Print(" CygnusOS version  : %s" % (cygnus_ver));
+  script.Print(" Android version : %s (%s)" % (android_ver, build_id));
+  script.Print(" CAF tag  : %s" % spl);
+  script.Print(" Build date      : %s" % build_date);
+  script.Print("***********************************************");
+  script.Print(" Device          : %s" % device);
+  script.Print(" Manufacturer    : %s" % manufacturer);
+  script.Print("***********************************************");
+  script.Print("");
+
+  script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
 
   if target_info.get("system_root_image") == "true":
