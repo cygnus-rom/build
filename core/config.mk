@@ -320,7 +320,7 @@ include $(BUILD_SYSTEM)/envsetup.mk
 FIND_LEAVES_EXCLUDES := $(addprefix --prune=, $(SCAN_EXCLUDE_DIRS) .repo .git)
 
 ifneq ($(CYGNUS_BUILD),)
-include vendor/cygnus/config/BoardConfigCygnus.mk
+include vendor/cygnus/configs/BoardConfigCygnus.mk
 endif
 
 # The build system exposes several variables for where to find the kernel
@@ -1195,6 +1195,6 @@ endif
 endif
 
 # Include any vendor specific config.mk file
--include vendor/*/build/core/config.mk
+-include vendor/cygnus/build/core/config.mk
 
 include $(BUILD_SYSTEM)/dumpvar.mk

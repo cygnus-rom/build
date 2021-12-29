@@ -88,7 +88,7 @@ $(foreach m,$(my_modules_and_deps),\
   ))
 
 ifneq ($(my_missing_error),)
-  $(error done)
+  $(warning done)
 endif
 
 $(my_package_zip): PRIVATE_COPY_PAIRS := $(my_copy_pairs)
