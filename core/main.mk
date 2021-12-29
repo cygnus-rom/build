@@ -482,6 +482,7 @@ endif
 # ------------------------------------------------------------
 # Include vendor specific additions to build properties
 -include vendor/cygnus/build/core/main.mk
+-include vendor/cygnus/configs/version.mk
 
 # ------------------------------------------------------------
 # Define a function that, given a list of module tags, returns
