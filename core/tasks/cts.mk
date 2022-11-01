@@ -46,7 +46,7 @@ ifneq (,$(wildcard cts/))
       has changed and a new version must be added to this CTS file.
       ============================================================
     endef
-    $(error $(error_msg))
+    $(warning $(error_msg))
   endif
   ifeq (,$(findstring $(PLATFORM_VERSION_LAST_STABLE),$(cts_platform_release_string)))
     define error_msg
@@ -57,7 +57,7 @@ ifneq (,$(wildcard cts/))
       has changed and a new version must be added to this CTS file.
       ============================================================
     endef
-    $(error $(error_msg))
+    $(warning $(error_msg))
   endif
 endif
 
